@@ -22,10 +22,7 @@ pipeline {
 
         stage('Run Docker Container') {
             steps {
-                // Stop + remove container if already running
-                sh 'docker rm -f michrotech-web-container || true'
-                // Run new container
-                sh 'docker run -d -p 3000:80 --name michrotech-web-container michrotech-web'
+                sh 'docker run -d -p 3000:80 --name michrotech-web-container michrotech-web || true'
             }
         }
     }
